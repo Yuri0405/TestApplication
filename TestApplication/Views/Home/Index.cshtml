@@ -1,0 +1,10 @@
+﻿
+<div>
+    <h2>"Folder" - @ViewBag.Path</h2>
+    @{
+        for(int i = 0;i < ViewBag.SubFolderURLs.Count;i++)
+        {
+            <a href=@ViewBag.SubFolderURLs[i]>@ViewBag.Folders[i].Name</a><br/>
+        }
+    }
+</div>
