@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TestApplication.Models;
+using TestApplication.Models.Data;
 
 namespace TestApplication
 {
@@ -21,7 +21,7 @@ namespace TestApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<folderdbContext>(opt =>
+            services.AddDbContext<FolderDBContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
@@ -39,9 +39,7 @@ namespace TestApplication
 
             app.UseEndpoints(endpoints =>
             {
-             endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "/");
+                endpoints.MapControllers();
             });
         }
     }

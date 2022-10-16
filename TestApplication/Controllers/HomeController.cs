@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using TestApplication.Models;
+using TestApplication.Models.Data;
 
 namespace TestApplication.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly folderdbContext _db;
+        private readonly FolderDBContext _db;
 
-        public HomeController(ILogger<HomeController> logger,folderdbContext db)
+        public HomeController(ILogger<HomeController> logger, FolderDBContext db)
         {
             _db = db;
         }
